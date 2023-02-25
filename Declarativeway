@@ -57,6 +57,26 @@ stage('Build')
 }
 }
 }
+post{
+    
+    always{
+        emailext body: '''Build is over
+         regards
+         puneeth''', subject: 'Build Over', to: 'puneeth.bh02@gmail.com'
+    }
+    
+    failure{
+        emailext body: '''Build is over it failed
+          regards
+          puneeth''', subject: 'Build Over', to: 'puneeth.bh02@gmail.com'
+    }
+	
+      success{
+          emailext body: '''Build is over and its success
+          regards
+          puneeth''', subject: 'Build Over', to: 'puneeth.bh02@gmail.com'
+     }
+}
 	
 	
 }
